@@ -39,6 +39,7 @@ public class SaveStudent {
 		//p3.setId(105);
 		p3.setName("ABCDS");
 		p3.setMobile(1448456724);
+		
  
 		Transaction tx = session.beginTransaction();
 		session.save(p);
