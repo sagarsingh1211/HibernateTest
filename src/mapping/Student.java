@@ -1,26 +1,27 @@
-package classes;
+package mapping;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
+import mapping.StudentAddress;
 
 @Entity
-@Table(name = "Student")
-public class StudentPojo {
+public class Student {
 
-	@Column(name = "SName")
 	private String name;
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "Sid")
 	private int id;
 	private int mobile;
 	private StudentAddress studentAddress;
 	
-	@Embedded //Add two classes data in one table
+	@OneToOne(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name = "studentAddressId_FK")
 	public StudentAddress getStudentAddress() {
 		return studentAddress;
 	}
@@ -33,6 +34,9 @@ public class StudentPojo {
 	public void setName(String name) {
 		this.name = name;
 	}
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "Sid")
 	public int getId() {
 		return id;
 	}
@@ -45,4 +49,5 @@ public class StudentPojo {
 	public void setMobile(int mobile) {
 		this.mobile = mobile;
 	}
+	
 }

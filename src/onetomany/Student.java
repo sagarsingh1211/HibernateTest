@@ -1,48 +1,56 @@
-package classes;
+package onetomany;
+
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
-@Table(name = "Student")
-public class StudentPojo {
+public class Student {
 
-	@Column(name = "SName")
 	private String name;
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "Sid")
 	private int id;
 	private int mobile;
-	private StudentAddress studentAddress;
-	
-	@Embedded //Add two classes data in one table
-	public StudentAddress getStudentAddress() {
-		return studentAddress;
+	private College college;
+
+	@ManyToOne
+	@JoinColumn(name = "college_ID")
+	public College getCollege() {
+		return college;
 	}
-	public void setStudentAddress(StudentAddress studentAddress) {
-		this.studentAddress = studentAddress;
+
+	public void setCollege(College college) {
+		this.college = college;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	@Id
+	@GeneratedValue
+	@Column(name = "Sid")
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public int getMobile() {
 		return mobile;
 	}
+
 	public void setMobile(int mobile) {
 		this.mobile = mobile;
 	}
+
 }

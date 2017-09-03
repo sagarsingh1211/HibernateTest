@@ -16,12 +16,12 @@
 <!-- Related to hibernate properties START -->
 <property name="show_sql">true </property>
 <property name="dialet">org.hibernate.dialect.MySQLDialect</property>
-<property name="hbm2ddl.auto">update</property>
+<property name="hbm2ddl.auto">create</property>
+<property name="hibernate.connection.autocommit">true</property>
 <!-- Related to hibernate properties END -->
  
 <!-- Related to mapping START -->
 <!-- <mapping resource="student.hbm.xml" /> -->
- <mapping class="classes.StudentPojo"/>
 <!-- Related to the mapping END -->
  
 </session-factory>
