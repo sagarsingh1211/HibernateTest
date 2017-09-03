@@ -40,8 +40,6 @@ public class SaveStudent {
 		s1.getCourse().add(c2);
 		s1.getCourse().add(c3);
 
-		
-
 		session.save(s);
 		session.save(s1);
 		session.save(c1);

@@ -22,7 +22,7 @@ public class Student {
 	private int mobile;
 	private List<Courses> course = new ArrayList<Courses>();
 
-	@ManyToMany(cascade= CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "join_student_courses", joinColumns = { @JoinColumn(name = "sid") }, inverseJoinColumns = {
 			@JoinColumn(name = "courseId") })
 
@@ -43,7 +43,7 @@ public class Student {
 	}
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public int getSid() {
 		return sid;
 	}

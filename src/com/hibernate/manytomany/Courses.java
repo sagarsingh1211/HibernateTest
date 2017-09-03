@@ -21,7 +21,7 @@ public class Courses {
 	private List<Student> students;
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public int getCourseId() {
 		return courseId;
 	}
@@ -38,7 +38,7 @@ public class Courses {
 		this.coursename = coursename;
 	}
 
-	@ManyToMany(cascade=CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "join_student_courses", joinColumns = { @JoinColumn(name = "courseId") }, inverseJoinColumns = {
 			@JoinColumn(name = "sid") })
 
