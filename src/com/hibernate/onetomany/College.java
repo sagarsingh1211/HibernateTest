@@ -1,4 +1,4 @@
-package onetomany;
+package com.hibernate.onetomany;
 
 import java.util.List;
 
@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -19,7 +20,7 @@ public class College {
 	private List<Student> students;
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public int getCollegeId() {
 		return collegeId;
 	}

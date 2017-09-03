@@ -1,4 +1,4 @@
-package classes;
+package com.hibenate.basic;
 
 import javax.persistence.Embeddable;
 

@@ -1,4 +1,4 @@
-package classes;
+package com.hibenate.basic;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;

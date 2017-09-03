@@ -1,16 +1,12 @@
-package mapping;
+package com.hibernate.onetomany;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-
-import mapping.StudentAddress;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Student {
@@ -18,36 +14,43 @@ public class Student {
 	private String name;
 	private int id;
 	private int mobile;
-	private StudentAddress studentAddress;
-	
-	@OneToOne(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name = "studentAddressId_FK")
-	public StudentAddress getStudentAddress() {
-		return studentAddress;
+	private College college;
+
+	@ManyToOne
+	@JoinColumn(name = "college_ID")
+	public College getCollege() {
+		return college;
 	}
-	public void setStudentAddress(StudentAddress studentAddress) {
-		this.studentAddress = studentAddress;
+
+	public void setCollege(College college) {
+		this.college = college;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	@Column(name = "Sid")
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public int getMobile() {
 		return mobile;
 	}
+
 	public void setMobile(int mobile) {
 		this.mobile = mobile;
 	}
-	
+
 }

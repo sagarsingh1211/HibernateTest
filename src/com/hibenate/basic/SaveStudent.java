@@ -1,4 +1,4 @@
-package classes;
+package com.hibenate.basic;
 
 
 import org.hibernate.Session;
